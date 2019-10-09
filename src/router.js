@@ -16,12 +16,12 @@ export default new Router({
     {
       path: '/order',
       name: 'order',
-      component: () => import(/* webpackChunkName: "about" */ './views/OrderPage.vue')
+      component: () => import('./views/OrderPage.vue')
     },
     {
       path: '/confirm',
       name: 'comfirm',
-      component: () => import(/* webpackChunkName: "about" */ './views/ConfirmationPage.vue')
+      component: () => import('./views/ConfirmationPage.vue')
     }
   ]
 })

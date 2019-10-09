@@ -1,11 +1,10 @@
 <template>
   <div class="start-page-container">
-    <button class="start-button" @click="goToOrderPage">START</button>
+    <button class="start-button" @click="goToOrderPage">Start</button>
   </div>
 </template>
 
 <script>
-
 export default {
   name: 'start',
   methods: {
@@ -17,6 +16,8 @@ export default {
 </script>
 
 <style lang="scss">
+  @import '../css/global.scss';
+
   .start-page-container{
     text-align: center;
     height: 100vh;
@@ -24,10 +25,11 @@ export default {
 
   .start-button{
     margin-top: 20%;
-    padding: 5% 20%;
+    padding: 2% 10%;
     border-radius: 5px;
-    font-size: 5em;
-    background: lightskyblue;
-    color: white;
+    font-size: 3em;
+    background: #FFF;
+    color: $black;
+    border: 5px solid $black;
   }
 </style>

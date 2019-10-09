@@ -1,26 +1,55 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Restart</router-link>
+    <div id="nav" v-if="totalPrice !== 0">
+      <div class="total-price-container">💰 Total Price: £{{totalPrice}}</div>
+      <div class="checkout-container" @click="goToConfirmationPage">🛒 Checkout</div>
     </div>
     <router-view/>
   </div>
 </template>
 
+<script>
+export default {
+  name: 'app',
+  computed: {
+    totalPrice () {
+      return this.$store.getters.getTotalPrice
+    }
+  },
+  methods: {
+    goToConfirmationPage(){
+      this.$router.push({path: "confirm"})
+    }
+  }
+}
+</script>
+
 <style lang="scss">
+  @import './css/global.scss';
+
   #app{
     font-family: 'Roboto', sans-serif;
+    background: $red;
   }
 
   #nav{
-    text-align: right;
+    position: relative;
+    font-size: 1.5em;
+  }
 
-    a{
-      text-decoration: none;
-      font-size: 2em;
-      padding: 5px 5px 0 0;
-      &:visited { text-decoration: none; color: black}
-      &:hover { text-decoration: none; color: black}
-    }
+  .total-price-container{
+    left: 0;
+    padding: 10px;
+    position: absolute;
+    background: #FFF;
+    border-bottom-right-radius: 10px;
+  }
+
+  .checkout-container{
+    right: 0;
+    padding: 10px;
+    position: absolute;
+    background: #FFF;
+    border-bottom-left-radius: 10px;
   }
 </style>

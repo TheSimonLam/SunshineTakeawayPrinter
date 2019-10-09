@@ -1,14 +1,16 @@
 <template>
-  <div>
-    <div class="ordered-items-container" @click="removeItem(item)" v-for="item in order" v-bind:key="item.name">
-      <!-- <div class="ordered-item-number">{{item.number}}</div> -->
-      <div class="ordered-item ordered-item-name">{{item.name}}</div>
-      <div class="ordered-item ordered-item-price">{{item.price}}</div>
+  <div class="confirmation-page-container">
+    <div class="ordered-items-container">
+      <div @click="removeItem(item)" v-for="item in order" v-bind:key="item.name">
+        <!-- <div class="ordered-item-number">{{item.number}}</div> -->
+        <div class="ordered-item ordered-item-name">{{item.name}}</div>
+        <div class="ordered-item ordered-item-price">{{item.price}}</div>
+      </div>
+      <div class="price-container">Grand Total: £{{totalPrice}}</div>
     </div>
-    <div class="price-container">Total is: £{{orderTotal}}</div>
-    <div class="nav-buttons-container">
-      <div class="nav-button nav-button-left" @click="backToOrderPage">Back</div>
-      <div class="nav-button nav-button-right" @click="print">Print</div>
+    <div class="confirmation-buttons-container">
+      <div class="confirmation-button" @click="backToOrderPage">Back</div>
+      <div class="confirmation-button" @click="print">Print</div>
     </div>
   </div>
 </template>
@@ -21,12 +23,8 @@ export default {
     order() {
       return this.$store.getters.getOrder
     },
-    orderTotal(){
-      let total = 0;
-      for(let order of this.$store.getters.getOrder){
-        total += parseInt(order.price);
-      }
-      return total;
+    totalPrice() {
+      return this.$store.getters.getTotalPrice
     }
   },
   methods: {
@@ -44,9 +42,18 @@ export default {
 </script>
 
 <style lang="scss">
+  @import '../css/global.scss';
+
+  .confirmation-page-container{
+    padding: 100px 50px;
+    height: 100vh;
+  }
+
   .ordered-items-container{
-    font-size: 1.8em;
-    padding: 5px 0;
+    font-size: 1.5em;
+    background: white;
+    border-radius: 5px;
+    padding: 10px;
   }
 
   .ordered-item {
@@ -62,7 +69,7 @@ export default {
   }
 
   .price-container{
-    font-size: 2em;
+    font-size: 1em;
     padding-top: 20px;
     font-weight: bold;
   }

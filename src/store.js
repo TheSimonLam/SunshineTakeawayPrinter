@@ -8,15 +8,18 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     menu: menu,
-    order: []
+    order: [],
+    totalPrice: 0
   },
   mutations: {
     addItemToOrder(state, item){
       let uuidCode = uuid();
       item.uuidCode = uuidCode;
       state.order.push(item);
+      state.totalPrice += parseFloat(item.price);
     },
     removeItemFromOrder(state, item){
+      state.totalPrice -= parseFloat(item.price);
       state.order = state.order.filter(function(itemToRemove) {
         return itemToRemove !== item;
       });
@@ -31,6 +34,9 @@ export default new Vuex.Store({
     },
     getOrder: state => {
       return state.order;
+    },
+    getTotalPrice: state => {
+      return state.totalPrice
     }
   }
 })
