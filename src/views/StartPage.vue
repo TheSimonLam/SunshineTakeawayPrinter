@@ -30,6 +30,5 @@ export default {
     font-size: 3em;
     background: #FFF;
     color: $black;
-    border: 5px solid $black;
   }
 </style>

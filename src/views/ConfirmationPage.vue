@@ -1,16 +1,16 @@
 <template>
   <div class="confirmation-page-container">
     <div class="ordered-items-container">
-      <div @click="removeItem(item)" v-for="item in order" v-bind:key="item.name">
+      <div class="item-container" @click="removeItem(item)" v-for="item in order" v-bind:key="item.uuid">
         <!-- <div class="ordered-item-number">{{item.number}}</div> -->
-        <div class="ordered-item ordered-item-name">{{item.name}}</div>
-        <div class="ordered-item ordered-item-price">{{item.price}}</div>
+        <div class="ordered-item ordered-item-name">{{item.name}} - </div>
+        <div class="ordered-item ordered-item-price">£{{item.price}}</div>
       </div>
-      <div class="price-container">Grand Total: £{{totalPrice}}</div>
+      <div class="price-container">Total: £{{totalPrice.toFixed(2)}}</div>
     </div>
     <div class="confirmation-buttons-container">
-      <div class="confirmation-button" @click="backToOrderPage">Back</div>
-      <div class="confirmation-button" @click="print">Print</div>
+      <div class="confirmation-button" @click="backToOrderPage">🔙 Back</div>
+      <div class="confirmation-button" @click="print">📄 Print</div>
     </div>
   </div>
 </template>
@@ -45,15 +45,20 @@ export default {
   @import '../css/global.scss';
 
   .confirmation-page-container{
-    padding: 100px 50px;
     height: 100vh;
+    padding-top: 100px;
   }
 
   .ordered-items-container{
-    font-size: 1.5em;
+    font-size: 1.3em;
     background: white;
     border-radius: 5px;
+    margin: 0 50px;
     padding: 10px;
+  }
+
+  .item-container{
+    padding-bottom: 10px;
   }
 
   .ordered-item {
@@ -72,5 +77,22 @@ export default {
     font-size: 1em;
     padding-top: 20px;
     font-weight: bold;
+  }
+
+  .confirmation-buttons-container{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+
+  .confirmation-button{
+    width: 50%;
+    background: white;
+    outline: 2px solid black;
+    display: inline-block;
+    height: 80px;
+    font-size: 2em;
+    text-align: center;
+    line-height: 80px;
   }
 </style>

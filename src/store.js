@@ -13,8 +13,7 @@ export default new Vuex.Store({
   },
   mutations: {
     addItemToOrder(state, item){
-      let uuidCode = uuid();
-      item.uuidCode = uuidCode;
+      item.uuid = uuid();
       state.order.push(item);
       state.totalPrice += parseFloat(item.price);
     },

@@ -1,7 +1,7 @@
 export default 
 [
   {
-    "name": "Chippy Menu",
+    "name": "Chippy",
     "items": [
       {
         "name": "Fish",
@@ -244,7 +244,7 @@ export default
   },
   {
     "description": "A delicious medium Madras curry blended with herbs & spices to our own proven recipe. A choice of meats cooked with mushrooms & onions & includes either rice or chips",
-    "name": "Curry Dishes",
+    "name": "Curry",
     "items": [
       {
         "name": "Special Curry",
@@ -277,8 +277,8 @@ export default
     ]
   },
   {
-    "description": "Popular dishes cooked in soy sauce and served with rice or chips",
-    "name": "Oriental Dishes",
+    "description": "Popular cooked in soy sauce and served with rice or chips",
+    "name": "Oriental",
     "items": [
       {
         "name": "Beef & Mushrooms",
@@ -402,7 +402,7 @@ export default
   },
   {
     "description": "A succulent mix of vegetables including beansprouts, mushrooms and bamboo shoots & waterchestnuts cooked in the meat of your choice, includes rice or chips",
-    "name": "Chop Suey Dishes",
+    "name": "Chop Suey",
     "items": [
       {
         "name": "Special Chop Suey",
@@ -436,7 +436,7 @@ export default
   },
   {
     "description": "A light, quick, fried egg dish served with a choice of rice or chips",
-    "name": "Foo Yung Dishes",
+    "name": "Foo Yung",
     "items": [
       {
         "name": "Special Foo Yung",
@@ -462,7 +462,7 @@ export default
   },
   {
     "description": "Battered pieces of Chicken, Pork or King Prawn covered with a rich sweet and sour sauce. Served with a choice of rice of chips",
-    "name": "Sweet & Sour Dishes",
+    "name": "Sweet & Sour",
     "items": [
       {
         "name": "Sweet & Sour Chicken",
@@ -487,8 +487,8 @@ export default
     ]
   },
   {
-    "description": "A choice of egg friend rice dishes are available. Rice or chips not included & not necessary",
-    "name": "Fried Rice Dishes",
+    "description": "A choice of egg friend rice are available. Rice or chips not included & not necessary",
+    "name": "Fried Rice",
     "items": [
       {
         "name": "Special Fried Rice",
@@ -527,7 +527,7 @@ export default
   },
   {
     "description": "Mixed vegetables & noodles lightly peppered & flavoured with soy sauce. Traditionally wok cooked with your choice of meat. Rice or chips not included & not necessary",
-    "name": "Chow Mein Dishes",
+    "name": "Chow Mein",
     "items": [
       {
         "name": "Special Chow Mein",
@@ -570,7 +570,7 @@ export default
   },
   {
     "description": "A slightly spicy peanut based satay sauce over green peppers, onions & sliced cucumber. Includes Rice or Chips",
-    "name": "Satay Dishes",
+    "name": "Satay",
     "items": [
       {
         "name": "Special Satay",
@@ -592,7 +592,7 @@ export default
   },
   {
     "description": "A spicy hot & sweet traditional Kung Po dish served with Rice or Chips",
-    "name": "Kung Po Dishes",
+    "name": "Kung Po",
     "items": [
       {
         "name": "Special Kung Po",
@@ -623,7 +623,7 @@ export default
   },
   {
     "description": "Onions & green peppers cooked in tasty red sweet & tangy Cantonese sauce. Includes Rice or Chips",
-    "name": "Cantonese Sauce Dishes",
+    "name": "Cantonese Sauce",
     "items": [
       {
         "name": "Cantonese Sauce Special",
@@ -649,7 +649,7 @@ export default
   },
   {
     "description": "A mild white garlic sauce dish with mushrooms & onions. Includes Rice or Chips",
-    "name": "Garlic Sauce Dishes",
+    "name": "Garlic Sauce",
     "items": [
       {
         "name": "Garlic Sauce Special",
@@ -667,7 +667,7 @@ export default
   },
   {
     "description": "Red hot & spicy, green peppers, chilli peppers, onions & plenty of chilli sauce. Includes Rice or Chips",
-    "name": "Chilli Sauce Dishes",
+    "name": "Chilli Sauce",
     "items": [
       {
         "name": "Chilli Sauce Special",
@@ -703,7 +703,7 @@ export default
   },
   {
     "description": "Tangy, Tasty & Slightly spicy. Includes Rice or Chips",
-    "name": "Szechuan Dishes",
+    "name": "Szechuan",
     "items": [
       {
         "name": "Szechuan Sauce Special",
@@ -723,8 +723,8 @@ export default
     ]
   },
   {
-    "description": "Completely vegetarian dishes. Includes Rice or Chips except for chow mein dish",
-    "name": "Vegetarian Dishes",
+    "description": "Completely vegetarian. Includes Rice or Chips except for chow mein dish",
+    "name": "Vegetarian",
     "items": [
       {
         "name": "Fried Onions & Mushrooms in Soy Sauce",
@@ -771,7 +771,7 @@ export default
   },
   {
     "description": "Includes Chips & Peas. Onions & Gravy included where appropriate",
-    "name": "English Dishes",
+    "name": "English",
     "items": [
       {
         "name": "Mixed Grill",
