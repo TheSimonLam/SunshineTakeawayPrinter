@@ -10,7 +10,19 @@
     </div>
     <div class="confirmation-buttons-container">
       <div class="confirmation-button" @click="backToOrderPage">🔙 Back</div>
+      <div class="confirmation-button" @click="toggleResetOverlay">♻️ Reset</div>
       <div class="confirmation-button" @click="print">📄 Print</div>
+    </div>
+
+    <div class="reset-overlay-container" v-if="showResetOverlay">
+      <div class="overlay-background" @click="toggleResetOverlay"></div>
+      <div class="reset-container">
+        <div>Are you sure you want to reset?</div>
+        <div class="overlay-buttons-container">
+          <button class="overlay-button" @click="reset">Yes</button>
+          <button class="overlay-button" @click="toggleResetOverlay">No</button>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -27,12 +39,25 @@ export default {
       return this.$store.getters.getTotalPrice
     }
   },
+  data(){
+    return {
+      showResetOverlay: false
+    }
+  },
   methods: {
     print(){
       window.print();
     },
     backToOrderPage(){
       this.$router.push({ path: 'order' })
+    },
+    toggleResetOverlay(){
+      this.showResetOverlay = !this.showResetOverlay;
+    },
+    reset(){
+      this.toggleResetOverlay();
+      this.$store.commit("resetOrder");
+      this.$router.push({ path: '/' })
     },
     removeItem(item){
       this.$store.commit("removeItemFromOrder", item);
@@ -55,6 +80,7 @@ export default {
     border-radius: 5px;
     margin: 0 50px;
     padding: 10px;
+    border: 2px solid black;
   }
 
   .item-container{
@@ -83,16 +109,68 @@ export default {
     position: fixed;
     bottom: 0;
     width: 100%;
+    text-align: center;
   }
 
   .confirmation-button{
-    width: 50%;
     background: white;
-    outline: 2px solid black;
+    border: 2px solid black;
     display: inline-block;
     height: 80px;
     font-size: 2em;
     text-align: center;
     line-height: 80px;
+    border-bottom: 0;
+    width: 31%;
+    margin: 5px;
+    margin-bottom: 0;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+  }
+
+  .reset-overlay-container{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+  }
+
+  .overlay-background{
+    background: black;
+    height: 100%;
+    width: 100%;
+    opacity: 0.5;
+    position: absolute;
+  }
+
+  .reset-container{
+    display: inline-block;
+    background: #FFF;
+    width: 40%;
+    height: 180px;
+    border-radius: 5px;
+    padding: 40px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    font-size: 2em;
+    border: 2px solid black;
+  }
+
+  .overlay-buttons-container{
+    margin-top: 10px;
+  }
+
+  .overlay-button{
+    font-size: 1.5em;
+    border: 2px solid black;
+    margin: 20px;
+    background: #90CCF4;
+    border-radius: 5px;
   }
 </style>

@@ -22,6 +22,10 @@ export default new Vuex.Store({
       state.order = state.order.filter(function(itemToRemove) {
         return itemToRemove !== item;
       });
+    },
+    resetOrder(state){
+      state.order = [];
+      state.totalPrice = 0;
     }
   },
   actions: {

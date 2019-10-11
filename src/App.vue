@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div id="nav" v-if="totalPrice !== 0">
+    <div id="nav" v-if="orderItemCount > 0">
       <div class="total-price-container">💰 Total Price: £{{totalPrice.toFixed(2)}}</div>
       <div class="checkout-container" @click="goToConfirmationPage">🛒 Checkout ({{orderItemCount}})</div>
     </div>
@@ -70,8 +70,8 @@ export default {
     font-size: 1.5em;
     transition: opacity 0.5s linear;
     opacity: 0;
-    top: 0;
-    left: 0;
+    top: -500px;
+    left: -500px;
     border: 1px solid black;
     border-radius: 5px;
     padding: 5px;
