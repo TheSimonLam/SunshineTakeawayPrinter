@@ -3,7 +3,7 @@
     <div class="category-container" @click="toggleShowItems">{{category.name}}</div>
     <div class="items-container" v-bind:class="{ expanded: showItems }">
       <div class="item-square-container" @click="itemSelected(item, category.sideIncluded, $event)" v-for="item in category.items" v-bind:key="item.id">
-        <div class="item-emoji" v-if="item.emoji">{{item.emoji}}</div>
+        <div class="item-emoji" v-if="generateEmoji(item.name)">{{generateEmoji(item.name)}}</div>
         <div class="item item-id">{{item.id}}</div>
         <div class="item item-name">{{item.name}}</div>
         <div class="item item-price">£{{item.price.toFixed(2)}}</div>
@@ -94,6 +94,15 @@ export default {
       this.addToOrder(this.currentlySelectedItem);
       this.toggleSideOverlay();
     },
+    generateEmoji(itemName){
+      if (itemName.toLowerCase().indexOf("special") > -1) return "✨"
+      if (itemName.toLowerCase().indexOf("beef") > -1) return "🐄"
+      if (itemName.toLowerCase().indexOf("chicken") > -1) return "🐔"
+      if (itemName.toLowerCase().indexOf("pork") > -1) return "🐷"
+      if (itemName.toLowerCase().indexOf("siu") > -1) return "🍖"
+      if (itemName.toLowerCase().indexOf("king") > -1) return "🍤"
+      if (itemName.toLowerCase().indexOf("prawn") > -1) return "🦐"
+    }
   }
 }
 </script>
@@ -121,7 +130,7 @@ export default {
   .item-square-container{
       height: 150px;
       width: 100px;
-      background: #F3D250;
+      background: $yellow;
       margin: 10px;
       display: inline-block;
       padding: 10px;
@@ -144,7 +153,7 @@ export default {
       position: absolute;
       top: 0;
       right: 0;
-      font-size: 3em;
+      font-size: 2.5em;
     }
 
     .item-name{
