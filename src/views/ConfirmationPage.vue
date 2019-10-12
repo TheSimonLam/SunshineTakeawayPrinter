@@ -2,7 +2,8 @@
   <div class="confirmation-page-container">
     <div class="ordered-items-container">
       <div class="item-container" @click="removeItem(item)" v-for="item in order" v-bind:key="item.id">
-        <div class="ordered-item ordered-item-name">{{item.id}}. {{item.name}} - </div>
+        <div class="ordered-item ordered-item-name">{{item.id}}. {{item.name}}</div>
+        <div class="ordered-item ordered-item-name" v-if="item.side"> with {{item.side.name}}</div> -
         <div class="ordered-item ordered-item-price">£{{item.price.toFixed(2)}}</div>
       </div>
       <div class="price-container">Total: £{{totalPrice.toFixed(2)}}</div>
@@ -148,7 +149,7 @@ export default {
     display: inline-block;
     background: #FFF;
     width: 40%;
-    height: 180px;
+    height: 50vh;
     border-radius: 5px;
     padding: 40px;
     position: absolute;

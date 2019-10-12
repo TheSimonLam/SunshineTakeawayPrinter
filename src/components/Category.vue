@@ -113,7 +113,7 @@ export default {
   }
 
   .expanded{
-    max-height: 2200px!important;
+    max-height: 1170px!important;
     border: 2px solid black;
   }
 
@@ -156,7 +156,7 @@ export default {
       max-height: 0;
       overflow: hidden;
       overflow-y: hidden;
-      transition: max-height 0.5s linear;
+      transition: max-height 0.2s linear;
     }
 
     .side-overlay-container{
@@ -181,7 +181,7 @@ export default {
     display: inline-block;
     background: #FFF;
     width: 40%;
-    height: 250px;
+    height: 50vh;
     border-radius: 5px;
     padding: 40px;
     position: absolute;

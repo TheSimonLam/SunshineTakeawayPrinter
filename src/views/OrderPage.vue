@@ -25,6 +25,6 @@ export default {
 
   .order-page-container{
     text-align: center;
-    padding: 10px;
+    padding: 50px 10px 10px 10px;
   }
 </style>
