@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import menu from './assets/menu';
+import uuid from 'uuidv4';
 
 Vue.use(Vuex)
 
@@ -29,8 +30,10 @@ export default new Vuex.Store({
   },
   mutations: {
     addItemToOrder(state, item){
+      item.uuid = uuid();
       state.order.push(item);
       state.totalPrice += item.price;
+      console.log(state.menu);
     },
     removeItemFromOrder(state, item){
       state.totalPrice -= item.price;

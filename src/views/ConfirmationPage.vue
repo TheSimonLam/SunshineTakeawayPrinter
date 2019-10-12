@@ -1,7 +1,7 @@
 <template>
   <div class="confirmation-page-container">
     <div class="ordered-items-container">
-      <div class="item-container" @click="removeItem(item)" v-for="item in order" v-bind:key="item.uuid">
+      <div class="item-container" @click="removeItem(item)" v-for="item in order" v-bind:key="item.id">
         <div class="ordered-item ordered-item-name">{{item.id}}. {{item.name}} - </div>
         <div class="ordered-item ordered-item-price">£{{item.price.toFixed(2)}}</div>
       </div>
