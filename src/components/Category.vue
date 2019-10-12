@@ -2,10 +2,10 @@
   <div>
     <div class="category-container" @click="toggleShowItems">{{category.name}}</div>
     <div class="items-container" v-bind:class="{ expanded: showItems }">
-      <div class="item-square-container" @click="addToOrder(item, category.sideIncluded, $event)" v-for="item in category.items" v-bind:key="item.number">
-        <div class="item item-number">{{item.number}}</div>
+      <div class="item-square-container" @click="itemSelected(item, category.sideIncluded, $event)" v-for="item in category.items" v-bind:key="item.id">
+        <div class="item item-id">{{item.id}}</div>
         <div class="item item-name">{{item.name}}</div>
-        <div class="item item-price">£{{item.price}}</div>
+        <div class="item item-price">£{{item.price.toFixed(2)}}</div>
         <div class="item item-allergens">{{item.allergens}}</div>
       </div>
     </div>
@@ -15,9 +15,10 @@
       <div class="side-container">
         <div>Choose a side:</div>
         <div class="side-overlay-buttons-container">
-          <button class="side-overlay-button" @click="sideChosen('br')">Boiled Rice</button>
-          <button class="side-overlay-button" @click="sideChosen('fr')">Fried Rice</button>
-          <button class="side-overlay-button" @click="sideChosen('na')">None</button>
+          <div v-for="mealSide in mealSides" v-bind:key="mealSide.id">
+            <button class="side-overlay-button" @click="sideChosen(mealSide)">{{mealSide.name}}</button>
+          </div>
+          <button class="side-overlay-button" @click="sideChosen()">None</button>
         </div>
       </div>
     </div>
@@ -33,19 +34,34 @@ export default {
   data: function(){
     return {
       showItems: false,
-      showSideOverlay: false
+      showSideOverlay: false,
+      currentlySelectedItem: {}
+    }
+  },
+  computed: {
+    mealSides () {
+      return this.$store.getters.getMenuMealSides
     }
   },
   methods: {
     toggleShowItems(){
       this.showItems = !this.showItems
     },
-    addToOrder(item, sideIncluded, e){
-      this.fireAddedToBasketMessage(e);
-      this.$store.commit("addItemToOrder", item);
-
-      if(sideIncluded && !item.dontIncludeSideOverride) //the override's for vegetarian chow mein
+    itemSelected(item, sideIncluded, e){
+      if(sideIncluded && !item.dontIncludeSideOverride){ //the override's for vegetarian chow mein
+        this.currentlySelectedItem = item;
         this.toggleSideOverlay();
+      }
+      else{
+        this.addToOrder(item, e)
+      }
+    },
+    addToOrder(item, e){
+      if(e)
+        this.fireAddedToBasketMessage(e);
+
+      this.currentlySelectedItem = {};
+      this.$store.commit("addItemToOrder", item);
     },
     fireAddedToBasketMessage(e){
       let message = document.getElementById("item-added-message");
@@ -66,10 +82,13 @@ export default {
       this.showSideOverlay = !this.showSideOverlay;
     },
     sideChosen(side){
+      this.currentlySelectedItem.side = side;
+
+      if(side && side.id === 313){
+        this.currentlySelectedItem.price = this.currentlySelectedItem.price += 0.5;
+      }
+      this.addToOrder(this.currentlySelectedItem);
       this.toggleSideOverlay();
-      console.log(side);
-      // this.$store.commit("resetOrder");
-      // this.$router.push({ path: '/' })
     },
   }
 }
@@ -92,6 +111,7 @@ export default {
 
   .expanded{
     max-height: 2200px!important;
+    border: 2px solid black;
   }
 
   .item-square-container{
@@ -111,7 +131,7 @@ export default {
       padding: 5px 0;
     }
 
-    .item-number{
+    .item-id{
 
     }
 
@@ -134,7 +154,6 @@ export default {
       overflow: hidden;
       overflow-y: hidden;
       transition: max-height 0.5s linear;
-      border: 2px solid black;
     }
 
     .side-overlay-container{
@@ -159,7 +178,7 @@ export default {
     display: inline-block;
     background: #FFF;
     width: 40%;
-    height: 200px;
+    height: 250px;
     border-radius: 5px;
     padding: 40px;
     position: absolute;

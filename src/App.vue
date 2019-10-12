@@ -2,6 +2,7 @@
   <div id="app">
     <div id="nav" v-if="orderItemCount > 0">
       <div class="total-price-container">💰 Total Price: £{{totalPrice.toFixed(2)}}</div>
+      <div class="undo-container" @click="undoLastItemAdded">🌀Undo ({{orderItemCount}})</div>
       <div class="checkout-container" @click="goToConfirmationPage">🛒 Checkout ({{orderItemCount}})</div>
     </div>
     <div id="item-added-message" class="item-added-message-container">Item added!</div>
@@ -23,6 +24,9 @@ export default {
   methods: {
     goToConfirmationPage(){
       this.$router.push({path: "confirm"})
+    },
+    undoLastItemAdded(){
+      this.$store.commit("removeLastItem");
     }
   }
 }
@@ -60,6 +64,18 @@ export default {
     background: #FFF;
     border-bottom-left-radius: 10px;
     border-left: 2px solid black;
+    border-bottom: 2px solid black;
+  }
+
+  .undo-container{
+    right: 40%;
+    padding: 10px;
+    position: absolute;
+    background: #FFF;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
     border-bottom: 2px solid black;
   }
 
