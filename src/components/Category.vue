@@ -27,6 +27,7 @@
 </template>
 
 <script>
+import uuid from 'uuidv4';
 
 export default {
   name: 'category',
@@ -48,12 +49,13 @@ export default {
       this.showItems = !this.showItems
     },
     itemSelected(item, sideIncluded, e){
-      if(sideIncluded && !item.dontIncludeSideOverride){ //the override's for vegetarian chow mein
-        this.currentlySelectedItem = item;
+      let mutableItem = JSON.parse(JSON.stringify(item)); //Stupid hack for deepcloning an object
+      if(sideIncluded && !mutableItem.dontIncludeSideOverride){ //the override's for vegetarian chow mein
+        this.currentlySelectedItem = mutableItem;
         this.toggleSideOverlay();
       }
       else{
-        this.addToOrder(item, e)
+        this.addToOrder(mutableItem, e)
       }
     },
     addToOrder(item, e){
@@ -61,6 +63,7 @@ export default {
         this.fireAddedToBasketMessage(e);
 
       this.currentlySelectedItem = {};
+      item.uuid = uuid();
       this.$store.commit("addItemToOrder", item);
     },
     fireAddedToBasketMessage(e){
