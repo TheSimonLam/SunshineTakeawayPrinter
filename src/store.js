@@ -33,7 +33,6 @@ export default new Vuex.Store({
       item.uuid = uuid();
       state.order.push(item);
       state.totalPrice += item.price;
-      console.log(state.menu);
     },
     removeItemFromOrder(state, item){
       state.totalPrice -= item.price;
