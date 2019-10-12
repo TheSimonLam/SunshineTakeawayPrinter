@@ -3,6 +3,7 @@
     <div class="category-container" @click="toggleShowItems">{{category.name}}</div>
     <div class="items-container" v-bind:class="{ expanded: showItems }">
       <div class="item-square-container" @click="itemSelected(item, category.sideIncluded, $event)" v-for="item in category.items" v-bind:key="item.id">
+        <div class="item-emoji" v-if="item.emoji">{{item.emoji}}</div>
         <div class="item item-id">{{item.id}}</div>
         <div class="item item-name">{{item.name}}</div>
         <div class="item item-price">£{{item.price.toFixed(2)}}</div>
@@ -128,6 +129,7 @@ export default {
       border-radius: 5px;
       vertical-align: top;
       border: 2px solid black;
+      position: relative;
     }
 
     .item {
@@ -138,9 +140,18 @@ export default {
 
     }
 
+    .item-emoji{
+      position: absolute;
+      top: 0;
+      right: 0;
+      font-size: 3em;
+    }
+
     .item-name{
       font-size: 1em;
       font-weight: bold;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .item-price{
@@ -181,7 +192,7 @@ export default {
     display: inline-block;
     background: #FFF;
     width: 40%;
-    height: 50vh;
+    height: 35vh;
     border-radius: 5px;
     padding: 40px;
     position: absolute;
@@ -190,7 +201,7 @@ export default {
     right: 0;
     bottom: 0;
     margin: auto;
-    font-size: 2em;
+    font-size: 1.7em;
   }
 
   .side-overlay-buttons-container{

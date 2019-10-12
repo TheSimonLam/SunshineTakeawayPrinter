@@ -146,10 +146,11 @@ export default {
   }
 
   .reset-container{
+    border: 2px solid black;
     display: inline-block;
     background: #FFF;
     width: 40%;
-    height: 50vh;
+    height: 35vh;
     border-radius: 5px;
     padding: 40px;
     position: absolute;
@@ -158,8 +159,7 @@ export default {
     right: 0;
     bottom: 0;
     margin: auto;
-    font-size: 2em;
-    border: 2px solid black;
+    font-size: 1.7em;
   }
 
   .overlay-buttons-container{

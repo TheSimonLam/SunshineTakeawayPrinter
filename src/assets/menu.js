@@ -13,6 +13,10 @@ export default
         "price": 2.00
       },
       {
+        "name": "Small Chips",
+        "price": 1.70
+      },
+      {
         "name": "Chip cone",
         "price": 1.50
       },
@@ -313,7 +317,7 @@ export default
   },
   {
     "description": "Popular cooked in soy sauce and served with rice or chips",
-    "name": "Oriental",
+    "name": "Mushroom",
     "sideIncluded": true,
     "items": [
       {
@@ -345,7 +349,14 @@ export default
         "id": 26,
         "name": "King Prawn & Mushrooms",
         "price": 7.00
-      },
+      }
+    ]
+  },
+  {
+    "description": "Popular cooked in soy sauce and served with rice or chips",
+    "name": "Pineapple",
+    "sideIncluded": true,
+    "items": [
       {
         "id": 31,
         "name": "Beef & Pineapple",
@@ -370,7 +381,14 @@ export default
         "id": 36,
         "name": "King Prawn & Pineapple",
         "price": 7.00
-      },
+      }
+    ]
+  },
+  {
+    "description": "Popular cooked in soy sauce and served with rice or chips",
+    "name": "Bamboo Shoots",
+    "sideIncluded": true,
+    "items": [
       {
         "id": 41,
         "name": "Beef with Bamboo Shoots & Waterchestnuts",
@@ -395,7 +413,14 @@ export default
         "id": 46,
         "name": "King Prawn with Bamboo Shoots & Waterchestnuts",
         "price": 7.00
-      },
+      }
+    ]
+  },
+  {
+    "description": "Popular cooked in soy sauce and served with rice or chips",
+    "name": "Cashew Nuts",
+    "sideIncluded": true,
+    "items": [
       {
         "id": 52,
         "name": "Chicken & Cashew Nuts",
@@ -405,7 +430,14 @@ export default
         "id": 56,
         "name": "King Prawns & Cashew Nuts",
         "price": 7.30
-      },
+      }
+    ]
+  },
+  {
+    "description": "Popular cooked in soy sauce and served with rice or chips",
+    "name": "Tomato",
+    "sideIncluded": true,
+    "items": [
       {
         "id": 91,
         "name": "Beef & Tomato",
@@ -425,7 +457,14 @@ export default
         "id": 96,
         "name": "King Prawn & Tomato",
         "price": 7.00
-      },
+      }
+    ]
+  },
+  {
+    "description": "Popular cooked in soy sauce and served with rice or chips",
+    "name": "Green Peppers",
+    "sideIncluded": true,
+    "items": [
       {
         "id": 121,
         "name": "Beef with Green Peppers & Black Bean Sauce",
@@ -440,7 +479,14 @@ export default
         "id": 126,
         "name": "King Prawn with Green Peppers & Black Bean Sauce",
         "price": 7.00
-      },
+      }
+    ]
+  },
+  {
+    "description": "Popular cooked in soy sauce and served with rice or chips",
+    "name": "Chinese Mushrooms",
+    "sideIncluded": true,
+    "items": [
       {
         "id": 191,
         "name": "Beef with Chinese Mushrooms",

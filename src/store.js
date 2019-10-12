@@ -15,6 +15,8 @@ function initSideOrders(){
         }
       }
 
+      mealSides.push({name: "Small Chips"});
+
       return mealSides;
     }
   }
@@ -22,7 +24,11 @@ function initSideOrders(){
 
 export default new Vuex.Store({
   state: {
-    menu: menu,
+    menu: menu.sort(function(a, b){
+      if(a.name < b.name) { return -1; }
+      if(a.name > b.name) { return 1; }
+      return 0;
+    }),
     order: [],
     totalPrice: 0,
     mealSides: initSideOrders()
